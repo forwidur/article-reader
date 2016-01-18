@@ -12,7 +12,6 @@ object build extends Build {
     id = "article-reader",
     base = file("."),
     settings = Defaults.coreDefaultSettings ++ graphSettings ++ Revolver.settings ++ Seq(
-
       resolvers ++= {
         Seq(
           "bintray cppexpert" at "https://dl.bintray.com/cppexpert/maven/",
@@ -42,6 +41,8 @@ object build extends Build {
           "org.jasypt" % "jasypt" % "1.9.2" withSources(),
 
           "org.mongodb" % "mongo-java-driver" % "3.2.1",
+
+          "org.ahocorasick" % "ahocorasick" % "0.3.0" withSources(),
 
           "org.scalikejdbc" %% "scalikejdbc" % "2.3.+",
           "com.chuusai" %% "shapeless" % "2.2.5",
