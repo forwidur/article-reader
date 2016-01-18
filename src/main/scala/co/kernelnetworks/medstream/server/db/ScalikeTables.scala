@@ -108,6 +108,11 @@ trait ScalikeTables extends ScalikeJdbcHelpers {
       }.map(Article(a)).list.apply()
   }
 
+  def getAllKeywords : Seq[String] = {
+
+    val a = Article.syntax("a")
+    sql"select DISTINCT unnest(keywords) as kw from ${Article.as(a)}".map(rs => rs.string(1)).list.apply()
+  }
 
   //////////////////////////////// Journals table //////////////////////////////////////////////////////////////////////
   private val journalColumns = Journal.column

@@ -12,6 +12,10 @@ public class ArticleProcessor {
         journals.stream().forEach(j -> mapJournals.put(j.id, j));
     }
 
+    void parseKeywords(List<String> keywords) {
+
+    }
+
     void parseArticle(ArticleJ article) {
 
         article.journal = mapJournals.get(article.journalId);

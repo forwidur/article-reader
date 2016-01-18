@@ -17,6 +17,8 @@ object main extends JsonMarshallers with ScalikeJdbcHelpers {
 
     val processor = new ArticleProcessor()
 
+    processor.parseKeywords(DBManager.getAllKeywords)
+
     val journals: Seq[Journal] = DBManager.getJournals
     processor.parseJournals(journals.map { v =>
       new JournalJ(v.id.toHexString, v.title, v.publisherName, v.rawTopics.getOrElse(Seq()) : Seq[String])
